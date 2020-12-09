@@ -1,7 +1,5 @@
 package logicController;
 
-import logicController.Models.RoundHandler;
-
 public class Board {
     private RoundHandler rh = new RoundHandler();
 

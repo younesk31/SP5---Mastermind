@@ -55,9 +55,9 @@ public class ColorController {
 
         } else if (color == 7) {
             //"Brown" color
-            pin.setR(165);
-            pin.setG(42);
-            pin.setB(42);
+            pin.setR(139);
+            pin.setG(69);
+            pin.setB(19);
             pin.setColorId(7);
 
         } else if (color == 8) {

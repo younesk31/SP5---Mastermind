@@ -14,9 +14,7 @@ public class Pin {
         this.colorId = colorId;
     }
 
-    public void setR(int r) {
-        this.r = r;
-    }
+    public void setR(int r) { this.r = r; }
 
     public void setG(int g) {
         this.g = g;
@@ -32,5 +30,17 @@ public class Pin {
 
     public int getColorId() {
         return colorId;
+    }
+
+    public int getR() {
+        return r;
+    }
+
+    public int getG() {
+        return g;
+    }
+
+    public int getB() {
+        return b;
     }
 }

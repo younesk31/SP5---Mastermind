@@ -1,16 +1,47 @@
 package visualController;
+import logicController.Models.Pin;
+import logicController.Models.Round;
+import processing.core.PApplet;
+import visualController.processing.GameObject;
+import logicController.RoundHandler;
 
-public class PlayerInputField {
+public class PlayerInputField implements GameObject {
 
-    public void newGame() {
+    private final RoundHandler rh;
 
+    public PlayerInputField(RoundHandler rh) {
+        this.rh = rh;
     }
 
-    public void colorChanger(int pinPos, int color){
 
+    @Override
+    public void draw(PApplet p){
+        int x;
+        int y = p.height-30;
+        for(Round r: rh.getRounds()) {
+            y -= 45;
+            x = p.width/2-35;
+            for(Pin pin: r.getPlayerInputArray()){
+                p.fill(pin.getR(),pin.getG() ,pin.getB());
+                p.circle(x,y,30);
+                x += 35;
+
+                //Søren laver det her senere: ok
+                //pin.setX = x;
+                //pin.setY = y;
+                //pin.setSize = 30;
+
+
+            }
+        }
     }
 
-    public void colorOption(){
+    @Override
+    public String getName() {
+        return null;
+    }
 
+    @Override
+    public void update(int curtimeMillis, PApplet p) {
     }
 }
