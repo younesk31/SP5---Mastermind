@@ -3,10 +3,7 @@ package visualController.processing;
 import gameController.PinController;
 import logicController.RoundHandler;
 import processing.core.PApplet;
-import visualController.Board;
-import visualController.ColorPalet;
-import visualController.FeedbackField;
-import visualController.PlayerInputField;
+import visualController.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,22 +18,14 @@ public class Mastermind implements ProcessingApp {
         this.rh = new RoundHandler();
         rh.newGame(4, 10);
 
-
-        //Test
-//        pc.changePlayerPin(rh.getRounds().get(0), 0, 1);
-
-
-        //Test
-//        MasterMindCode mm = new MasterMindCode(4, false);
-//        mm.getArrMasterCode().get(0).setColorId(1);
-//        mm.getArrMasterCode().get(1).setColorId(3);
-//        mm.getArrMasterCode().get(2).setColorId(5);
-//        mm.getArrMasterCode().get(3).setColorId(6);
         gameObjects = new ArrayList<>();
         addGameObject(new Board());
         addGameObject(new PlayerInputField(this.rh));
         addGameObject(new ColorPalet(rh));
         addGameObject(new FeedbackField(this.rh));
+        addGameObject(new MasterCode(this.rh));
+
+
     }
 
     public void addGameObject(GameObject d) {
@@ -46,6 +35,7 @@ public class Mastermind implements ProcessingApp {
     @Override
     public void settings(PApplet p) {
         p.size(500, 800);
+        //p.frameRate(10);
     }
 
     @Override
@@ -57,6 +47,7 @@ public class Mastermind implements ProcessingApp {
 
     @Override
     public void draw(PApplet p) {
+        p.frameRate(10);
         p.background(64);
         for (GameObject g : gameObjects) {
             g.draw(p);

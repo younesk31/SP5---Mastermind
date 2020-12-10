@@ -83,25 +83,32 @@ public class ColorPalet implements GameObject {
             roundSubmitter(p);
         } else if (p.mouseX >= x - 15 && p.mouseX <= (x + w + 5) && p.mouseY >= (y + 725) && p.mouseY <= ((y + 725) + (y)) && p.mouseButton == p.LEFT && p.mousePressed) {
             mousePin.setColorId(0);
-
         }
     }
 
-    /*
 
-    public void anerIkkeHvadFuckJegLaverLængere(){
-        for (Round round: rh.getRounds()) {
-            for (int i = 0; i < 4; i++) {
-                if (rh.getCurrentRound() == i) {
-                    cc.intToColor(round.getPlayerInputArray().get(0).getColorId(), round.getFeedbackArray().get(i-1));
-                    cc.intToColor(round.getPlayerInputArray().get(1).getColorId(), round.getFeedbackArray().get(i-1));
-                    cc.intToColor(round.getPlayerInputArray().get(2).getColorId(), round.getFeedbackArray().get(i-1));
-                    cc.intToColor(round.getPlayerInputArray().get(3).getColorId(), round.getFeedbackArray().get(i-1));
+
+    public void colorFeedbackPins(){
+        System.out.println("code: " +rh.getArrMasterCode().get(0).getColorId()+rh.getArrMasterCode().get(1).getColorId()+rh.getArrMasterCode().get(2).getColorId()+rh.getArrMasterCode().get(3).getColorId());
+        int countRed =0;
+
+        for (int i = 0; i <= 3; i++) {
+
+
+            cc.intToColor(rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId(), rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i));
+            System.out.println("FeedBack pin " + i + rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId());
+                if (rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId() == 1){
+                    countRed++;
                 }
             }
+
+
+        if(countRed == 4){
+            System.out.println("you win");
+            rh.endGame(1);
         }
     }
-    */
+
 
     public void mover(PApplet a) {
         a.ellipse(a.mouseX, a.mouseY, 10, 10);
@@ -120,9 +127,10 @@ public class ColorPalet implements GameObject {
             }
         }
         if (count == 4) {
-            rh.nextRound();
+            rh.endRound();
             System.out.println("Round: " + rh.getCurrentRound());
-            //anerIkkeHvadFuckJegLaverLængere();
+            colorFeedbackPins();
+            rh.incrementRound();
 
         }
     }

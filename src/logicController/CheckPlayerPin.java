@@ -1,6 +1,5 @@
 package logicController;
 
-import logicController.Models.MasterMindCode;
 import logicController.Models.Pin;
 import logicController.Models.Round;
 
@@ -15,27 +14,61 @@ public class CheckPlayerPin {
     FeedbackPinLogic fb = new FeedbackPinLogic();
 
 
-    public boolean checkPlayerPinPos(ArrayList<Pin> playerPins, int pos, MasterMindCode mmc) {
+    public boolean checkPlayerPinPos(ArrayList<Pin> playerPins, int pos, ArrayList<Pin> mmc) {
 
-        return playerPins.get(pos).getColorId() == (mmc.getArrMasterCode().get(pos).getColorId());
+        return playerPins.get(pos).getColorId() == (mmc.get(pos).getColorId());
     }
 
-    public void checkPlayerPinColor(Round round, MasterMindCode mmc) {
+    public void checkPlayerPinColor(Round round, ArrayList<Pin> mmc) {
         for (int i = 0; i < round.getPlayerInputArray().size(); i++) {
-            for (int j = 0; j < mmc.getArrMasterCode().size(); j++) {
-                if (round.getPlayerInputArray().get(i).getColorId() == mmc.getArrMasterCode().get(j).getColorId() && mmc.getArrMasterCode().get(j).getChecked() == false) {
-                    if (checkPlayerPinPos(round.getPlayerInputArray(), i, mmc)) {
-                        correctPos++;
-                        mmc.getArrMasterCode().get(j).setChecked(true);
-                    } else {
-                        correctColor++;
-                        mmc.getArrMasterCode().get(j).setChecked(true);
-                    }
+            for (int j = 0; j < mmc.size(); j++) {
+                if (round.getPlayerInputArray().get(i).getColorId() == mmc.get(j).getColorId() && round.getPlayerInputArray().get(i) == mmc.get(j)) {
+                    correctPos++;
+                    mmc.get(j).setChecked(true);
+                    i++;
+                } else if(round.getPlayerInputArray().get(i).getColorId()== mmc.get(j).getColorId() && round.getPlayerInputArray().get(i) != mmc.get(j)){
+                    correctColor++;
+                    mmc.get(j).setChecked(true);
                 }
+
+//                if (checkPlayerPinPos(round.getPlayerInputArray(), i, mmc)) {
+//
+//
+//
+//
+//                        mmc.get(j).setChecked(true);
+//                        i++;
+//                    } else {
+//                        correctColor++;
+//                        mmc.get(j).setChecked(true);
+//                    }
+
             }
         }
         fb.pinHandler(round, correctPos, correctColor);
+
+
+        correctColor = 0;
+        correctPos = 0;
+        for(Pin p : mmc ){
+            p.setChecked(false);
+        }
+
+
     }
+
+
+public void checkPlayerPinColorNewTry(Round round, ArrayList<Pin> mmc){
+        for(Pin mmcPin : mmc){
+            for(Pin playPin : round.getPlayerInputArray()){
+
+                //if(p.getColorId()
+
+            }
+
+        }
+        }
+
 
     public int getCorrectColor() {
         return correctColor;

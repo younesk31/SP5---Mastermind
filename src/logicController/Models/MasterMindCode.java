@@ -1,16 +1,21 @@
 package logicController.Models;
 
+import logicController.RoundHandler;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class MasterMindCode {
-
-    private final int size;
     ColorController cc = new ColorController();
     ArrayList<Pin> arrMasterCode = new ArrayList<Pin>();
 
-    public MasterMindCode(int size, boolean choice) {
-        this.size = size;
+
+
+    public ArrayList<Pin> MasterMindCode(){
+        return arrMasterCode;
+    }
+
+    public void newMasterMindCode(int size, boolean choice) {
         if (!choice) {
             this.arrMasterCode = randomScramble(size);
         } else
@@ -42,4 +47,6 @@ public class MasterMindCode {
     public void setArrMasterCode(ArrayList<Pin> arrMasterCode) {
         this.arrMasterCode = arrMasterCode;
     }
+
+
 }
