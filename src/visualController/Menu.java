@@ -4,15 +4,14 @@ import logicController.Rules;
 
 public class Menu {
 
-    public void showStartMenu(){
+    public void showStartMenu() {
     }
 
-    public void showRules(){
+    public void showRules() {
         new Rules();
     }
 
-    public void newGame(){
-
+    public void newGame() {
 
 
     }

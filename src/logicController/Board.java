@@ -1,7 +1,7 @@
 package logicController;
 
 public class Board {
-    private RoundHandler rh = new RoundHandler();
+    private final RoundHandler rh = new RoundHandler();
 
     public void newBoard(int size, int roundNrs) {
 
