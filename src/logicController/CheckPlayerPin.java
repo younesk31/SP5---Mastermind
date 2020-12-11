@@ -19,57 +19,34 @@ public class CheckPlayerPin {
         return playerPins.get(pos).getColorId() == (mmc.get(pos).getColorId());
     }
 
+
     public void checkPlayerPinColor(Round round, ArrayList<Pin> mmc) {
-        for (int i = 0; i < round.getPlayerInputArray().size(); i++) {
-            for (int j = 0; j < mmc.size(); j++) {
-                if (round.getPlayerInputArray().get(i).getColorId() == mmc.get(j).getColorId() && round.getPlayerInputArray().get(i) == mmc.get(j)) {
-                    correctPos++;
-                    mmc.get(j).setChecked(true);
-                    i++;
-                } else if(round.getPlayerInputArray().get(i).getColorId()== mmc.get(j).getColorId() && round.getPlayerInputArray().get(i) != mmc.get(j)){
-                    correctColor++;
-                    mmc.get(j).setChecked(true);
+        for (int j = 0; j < mmc.size(); j++) {
+            if (round.getPlayerInputArray().get(j).getColorId() == mmc.get(j).getColorId() && round.getPlayerInputArray().get(j).getChecked() == false) {
+                correctPos++;
+                round.getPlayerInputArray().get(j).setChecked(true);
+                mmc.get(j).setChecked(true);
+            } else {
+                for (int i = 0; i < round.getPlayerInputArray().size(); ++i) {
+
+                    if (round.getPlayerInputArray().get(i).getColorId() == mmc.get(j).getColorId() && mmc.get(j).getChecked() == false) {
+                        correctColor++;
+                        round.getPlayerInputArray().get(i).setChecked(true);
+                        mmc.get(j).setChecked(true);
+                    }
                 }
-
-//                if (checkPlayerPinPos(round.getPlayerInputArray(), i, mmc)) {
-//
-//
-//
-//
-//                        mmc.get(j).setChecked(true);
-//                        i++;
-//                    } else {
-//                        correctColor++;
-//                        mmc.get(j).setChecked(true);
-//                    }
-
             }
         }
         fb.pinHandler(round, correctPos, correctColor);
-
-
         correctColor = 0;
         correctPos = 0;
-        for(Pin p : mmc ){
+        for (Pin p : mmc) {
             p.setChecked(false);
         }
-
-
+        for (Pin p : round.getPlayerInputArray()){
+            p.setChecked(false);
+        }
     }
-
-
-public void checkPlayerPinColorNewTry(Round round, ArrayList<Pin> mmc){
-        for(Pin mmcPin : mmc){
-            for(Pin playPin : round.getPlayerInputArray()){
-
-                //if(p.getColorId()
-
-            }
-
-        }
-        }
-
-
     public int getCorrectColor() {
         return correctColor;
     }

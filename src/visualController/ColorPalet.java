@@ -15,6 +15,7 @@ public class ColorPalet implements GameObject {
     private final int h = 45;
     Pin mousePin = new Pin();
     ColorController cc = new ColorController();
+
     public ColorPalet(RoundHandler rh) {
         this.rh = rh;
     }
@@ -87,32 +88,27 @@ public class ColorPalet implements GameObject {
     }
 
 
-
-    public void colorFeedbackPins(){
-        System.out.println("code: " +rh.getArrMasterCode().get(0).getColorId()+rh.getArrMasterCode().get(1).getColorId()+rh.getArrMasterCode().get(2).getColorId()+rh.getArrMasterCode().get(3).getColorId());
-        int countRed =0;
+    public void colorFeedbackPins() {
+        System.out.println("code: " + rh.getArrMasterCode().get(0).getColorId() + rh.getArrMasterCode().get(1).getColorId() + rh.getArrMasterCode().get(2).getColorId() + rh.getArrMasterCode().get(3).getColorId());
+        int countRed = 0;
 
         for (int i = 0; i <= 3; i++) {
 
 
             cc.intToColor(rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId(), rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i));
-            System.out.println("FeedBack pin " + i + rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId());
-                if (rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId() == 1){
-                    countRed++;
-                }
+            System.out.println("FeedBackpin:"+i+" --> "+ rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId());
+            if (rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId() == 1) {
+                countRed++;
             }
+        }
 
 
-        if(countRed == 4){
+        if (countRed == 4) {
             System.out.println("you win");
             rh.endGame(1);
         }
     }
 
-
-    public void mover(PApplet a) {
-        a.ellipse(a.mouseX, a.mouseY, 10, 10);
-    }
 
     void roundSubmitter(PApplet p) {
         int count = 0;
@@ -149,8 +145,6 @@ public class ColorPalet implements GameObject {
 
     @Override
     public void update(int curtimeMillis, PApplet p) {
-        // cleanup - hvorfor laver vi den her circle?
-        //mover(p);
         checkPinpos(p);
 
     }

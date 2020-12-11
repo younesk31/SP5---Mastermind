@@ -1,8 +1,6 @@
 package visualController;
 
-import logicController.Models.MasterMindCode;
 import logicController.Models.Pin;
-import logicController.Models.Round;
 import logicController.RoundHandler;
 import processing.core.PApplet;
 import visualController.processing.GameObject;
@@ -16,30 +14,29 @@ public class MasterCode implements GameObject {
     }
 
 
-
-    public void drawMasterMindCode(PApplet p){
-        int x = p.width/2;
+    public void drawMasterMindCode(PApplet p) {
+        int x = p.width / 2;
         int y = 150;
         for (Pin pin : rh.getArrMasterCode()) {
             p.fill(pin.getR(), pin.getG(), pin.getB());
             p.circle(x, y, 20);
             x += 35;
-           // System.out.println(rh.getArrMasterCode().get(pin.getColorId()));
+            // System.out.println(rh.getArrMasterCode().get(pin.getColorId()));
         }
     }
 
 
     @Override
     public void draw(PApplet p) {
-        drawMasterMindCode(p);
 
-        if(rh.getCurrentRound() == 9 || rh.endGame() == true){
-        System.out.println("You have won from draw in mastercode");
+        if (rh.getCurrentRound() == 9 || rh.endGame() == true) {
+            System.out.println("You have won from draw in mastercode");
+            drawMasterMindCode(p);
         }
 
     }
 
-    public void newGame(){
+    public void newGame() {
 
     }
 

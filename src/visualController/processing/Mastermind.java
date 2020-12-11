@@ -13,18 +13,15 @@ public class Mastermind implements ProcessingApp {
     private final RoundHandler rh;
     PinController pc = new PinController();
 
-
     public Mastermind() {
         this.rh = new RoundHandler();
         rh.newGame(4, 10);
-
         gameObjects = new ArrayList<>();
         addGameObject(new Board());
         addGameObject(new PlayerInputField(this.rh));
-        addGameObject(new ColorPalet(rh));
+        addGameObject(new ColorPalet(this.rh));
         addGameObject(new FeedbackField(this.rh));
         addGameObject(new MasterCode(this.rh));
-
 
     }
 
@@ -35,7 +32,6 @@ public class Mastermind implements ProcessingApp {
     @Override
     public void settings(PApplet p) {
         p.size(500, 800);
-        //p.frameRate(10);
     }
 
     @Override
@@ -48,7 +44,6 @@ public class Mastermind implements ProcessingApp {
     @Override
     public void draw(PApplet p) {
         p.frameRate(10);
-        p.background(64);
         for (GameObject g : gameObjects) {
             g.draw(p);
         }

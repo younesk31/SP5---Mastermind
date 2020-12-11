@@ -7,13 +7,9 @@ public class Main extends PApplet {
     private static Mastermind app;
 
     public static void main(String[] args) {
-
-
         app = new Mastermind();
         String[] appletArgs = new String[]{"Main"};
         PApplet.main(appletArgs);
-
-
     }
 
     public void settings() {
