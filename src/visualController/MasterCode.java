@@ -36,7 +36,7 @@ public class MasterCode implements GameObject {
             //Win text
             p.fill(0);
             p.textSize(25);
-            p.text("YOU ARE AWESOME YOU WON!!!", 55, p.height / 2 - 175);
+            p.text("YOU ARE AWESOME YOU WON!!!", 95, p.height / 2 - 175);
 
             //New game bottom
             p.fill(0);
