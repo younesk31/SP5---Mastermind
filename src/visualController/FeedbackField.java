@@ -18,14 +18,6 @@ public class FeedbackField implements GameObject {
         this.rh = rh;
     }
 
-    public void newGame() {
-
-    }
-
-    public void colorChanger(int pinPos, int color) {
-
-    }
-
 
     public void createFeedbackCircles(PApplet p) {
         int x;

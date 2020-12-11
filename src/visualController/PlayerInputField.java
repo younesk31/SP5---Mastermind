@@ -14,10 +14,6 @@ public class PlayerInputField implements GameObject {
         this.rh = rh;
     }
 
-    public void clearFields() {
-
-    }
-
 
     public void fillPinCircles(PApplet p) {
         int x;

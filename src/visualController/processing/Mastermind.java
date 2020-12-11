@@ -1,6 +1,6 @@
 package visualController.processing;
 
-import gameController.PinController;
+
 import logicController.RoundHandler;
 import processing.core.PApplet;
 import visualController.*;
@@ -11,7 +11,6 @@ import java.util.List;
 public class Mastermind implements ProcessingApp {
     private final List<GameObject> gameObjects;
     private final RoundHandler rh;
-    PinController pc = new PinController();
 
     public Mastermind() {
         this.rh = new RoundHandler();

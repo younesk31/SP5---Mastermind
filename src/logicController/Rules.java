@@ -9,7 +9,7 @@ public class Rules {
                 "\n" +
                 "By default, a color can be used only once in a code sequence. If you start a new game with the 'Allow duplicates' checked, then any color can be used any number of times in the code sequence.\n" +
                 "\n" +
-                "After filling a line with your guesses and clicking on the 'Check' button, the computer responses with the result of your guess.\n" +
+                "After filling a line with your guesses and clicking on the 'Submit' button, the computer responses with the result of your guess.\n" +
                 "\n" +
                 "For each color in your guess that is in the correct color and correct position in the code sequence, the computer display a small red color on the right side of the current guess.\n" +
                 "\n" +

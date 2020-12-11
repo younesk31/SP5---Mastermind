@@ -8,7 +8,7 @@ public class FeedbackPinLogic {
 
     ColorController cc = new ColorController();
 
-    public void pinHandler(Round round, int correctPos, int correctColor){
+    public void pinHandler(Round round, int correctPos, int correctColor) {
         int iPos = 0;
         int iColor = 0;
         int indexPos = 0;
@@ -32,13 +32,4 @@ public class FeedbackPinLogic {
             iPos++;
         }
     }
-
-    public void winCondition(){
-
-    }
-
-    public void loseCondition(){
-
-    }
-
 }

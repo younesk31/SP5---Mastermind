@@ -14,12 +14,6 @@ public class CheckPlayerPin {
     FeedbackPinLogic fb = new FeedbackPinLogic();
 
 
-    public boolean checkPlayerPinPos(ArrayList<Pin> playerPins, int pos, ArrayList<Pin> mmc) {
-
-        return playerPins.get(pos).getColorId() == (mmc.get(pos).getColorId());
-    }
-
-
     public void checkPlayerPinColor(Round round, ArrayList<Pin> mmc) {
         for (int j = 0; j < mmc.size(); j++) {
             if (round.getPlayerInputArray().get(j).getColorId() == mmc.get(j).getColorId() && round.getPlayerInputArray().get(j).getChecked() == false) {
@@ -43,15 +37,8 @@ public class CheckPlayerPin {
         for (Pin p : mmc) {
             p.setChecked(false);
         }
-        for (Pin p : round.getPlayerInputArray()){
+        for (Pin p : round.getPlayerInputArray()) {
             p.setChecked(false);
         }
-    }
-    public int getCorrectColor() {
-        return correctColor;
-    }
-
-    public int getCorrectPos() {
-        return correctPos;
     }
 }

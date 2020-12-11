@@ -68,9 +68,4 @@ public class ColorController {
             pin.setColorId(8);
         }
     }
-
-    public void squareColor() {
-
-
-    }
 }

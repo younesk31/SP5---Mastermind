@@ -1,7 +1,5 @@
 package logicController.Models;
 
-import logicController.RoundHandler;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -10,11 +8,11 @@ public class MasterMindCode {
     ArrayList<Pin> arrMasterCode = new ArrayList<Pin>();
 
 
-
-    public ArrayList<Pin> MasterMindCode(){
+    public ArrayList<Pin> MasterMindCode() {
         return arrMasterCode;
     }
 
+    // create the a new mastermind code everytime a choice is given either by the player or by the "pc" (initialized)
     public void newMasterMindCode(int size, boolean choice) {
         if (!choice) {
             this.arrMasterCode = randomScramble(size);
@@ -22,6 +20,7 @@ public class MasterMindCode {
             this.arrMasterCode = playerChoice(size);
     }
 
+    // randomize the mastercode so that its random
     public ArrayList<Pin> randomScramble(int size) {
 
         for (int i = 0; i < size; i++) {
@@ -35,18 +34,16 @@ public class MasterMindCode {
     }
 
     public ArrayList<Pin> playerChoice(int size) {
-
-
         return null;
+    }
+
+    public void resetMastercode() {
+        arrMasterCode.clear();
     }
 
     public ArrayList<Pin> getArrMasterCode() {
         return arrMasterCode;
+
+
     }
-
-    public void setArrMasterCode(ArrayList<Pin> arrMasterCode) {
-        this.arrMasterCode = arrMasterCode;
-    }
-
-
 }

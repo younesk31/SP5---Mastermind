@@ -11,12 +11,13 @@ public class RoundHandler extends MasterMindCode {
     private final ArrayList<Round> rounds = new ArrayList<>();
     CheckPlayerPin cpp = new CheckPlayerPin();
     int currentRound = 0;
-
+    boolean state = false;
 
     public void newGame(int size, int roundNrs) {
 
         rounds.clear();
-        newMasterMindCode(size,false);
+        resetMastercode();
+        newMasterMindCode(size, false);
         for (int i = 0; i < roundNrs; i++) {
             rounds.add(new Round(size));
         }
@@ -36,19 +37,25 @@ public class RoundHandler extends MasterMindCode {
 
     }
 
-
-    boolean state = false;
-    public boolean endGame(){
+    public boolean endGame() {
         return state;
     }
-    public boolean endGame(int win){
-        if (win == 1){
+
+    public void setState(boolean state) {
+        this.state = state;
+    }
+
+    public boolean endGame(int win) {
+        if (win == 1) {
             state = true;
+        }
+        if (win == 2) {
+            state = false;
         }
         return state;
     }
 
-    public void incrementRound(){
+    public void incrementRound() {
         currentRound++;
     }
 

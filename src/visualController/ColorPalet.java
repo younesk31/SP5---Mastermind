@@ -7,7 +7,7 @@ import logicController.RoundHandler;
 import processing.core.PApplet;
 import visualController.processing.GameObject;
 
-public class ColorPalet implements GameObject {
+public class ColorPalet extends PApplet implements GameObject {
     private final RoundHandler rh;
     private final int x = 25;
     private final int y = 25;
@@ -61,7 +61,6 @@ public class ColorPalet implements GameObject {
         p.text(r + (rh.getCurrentRound()), p.width - p.textWidth(r + (10)), p.height >> 6);
     }
 
-
     public void buttonPressed(PApplet p) {
 
         if (PApplet.dist(p.mouseX, p.mouseY, x, y + 50) <= w / 2 && p.mouseButton == p.LEFT && p.mousePressed) {
@@ -93,10 +92,8 @@ public class ColorPalet implements GameObject {
         int countRed = 0;
 
         for (int i = 0; i <= 3; i++) {
-
-
             cc.intToColor(rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId(), rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i));
-            System.out.println("FeedBackpin:"+i+" --> "+ rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId());
+            System.out.println("FeedBackpin:" + i + " --> " + rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId());
             if (rh.getRounds().get(rh.getCurrentRound()).getFeedbackArray().get(i).getColorId() == 1) {
                 countRed++;
             }

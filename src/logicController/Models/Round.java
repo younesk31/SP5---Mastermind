@@ -41,15 +41,7 @@ public class Round {
         return playerInputArray;
     }
 
-    public void setPlayerInputArray(ArrayList<Pin> playerInputArray) {
-        this.playerInputArray = playerInputArray;
-    }
-
     public ArrayList<Pin> getFeedbackArray() {
         return feedbackArray;
-    }
-
-    public void setFeedbackArray(ArrayList<Pin> feedbackArray) {
-        this.feedbackArray = feedbackArray;
     }
 }
