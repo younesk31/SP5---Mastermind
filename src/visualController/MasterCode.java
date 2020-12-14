@@ -4,6 +4,7 @@ import logicController.Models.Pin;
 import logicController.RoundHandler;
 import processing.core.PApplet;
 import visualController.processing.GameObject;
+import visualController.processing.Mastermind;
 
 public class MasterCode implements GameObject {
 
@@ -36,7 +37,7 @@ public class MasterCode implements GameObject {
             //Win text
             p.fill(0);
             p.textSize(25);
-            p.text("YOU ARE AWESOME YOU WON!!!", 95, p.height / 2 - 175);
+            p.text("YOU ARE AWESOME YOU WON!!!", 55, p.height / 2 - 175);
 
             //New game bottom
             p.fill(0);
@@ -53,9 +54,10 @@ public class MasterCode implements GameObject {
 
             //Making the bottoms clickable
             if (p.mouseX >= x - 100 && p.mouseX <= x - 25 && p.mouseY >= y - 150 && p.mouseY <= y - 125 && p.mousePressed && p.mouseButton == p.LEFT) {
-                rh.newGame(4, 10);
                 rh.setState(false);
                 rh.setCurrentRound(0);
+                p.exit();
+
             } else if (p.mouseX >= x + 15 && p.mouseX <= x + 90 && p.mouseY >= y - 150 && p.mouseY <= y - 125 && p.mouseButton == p.LEFT && p.mousePressed) {
                 p.exit();
             }

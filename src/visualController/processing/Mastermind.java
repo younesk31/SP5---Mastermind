@@ -14,13 +14,14 @@ public class Mastermind implements ProcessingApp {
 
     public Mastermind() {
         this.rh = new RoundHandler();
-        rh.newGame(4, 10);
+        //rh.newGame(4, 10);
         gameObjects = new ArrayList<>();
         addGameObject(new Board());
         addGameObject(new PlayerInputField(this.rh));
         addGameObject(new ColorPalet(this.rh));
         addGameObject(new FeedbackField(this.rh));
         addGameObject(new MasterCode(this.rh));
+        addGameObject(new Menu(this.rh));
 
     }
 

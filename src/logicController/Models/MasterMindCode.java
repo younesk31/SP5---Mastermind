@@ -1,11 +1,14 @@
 package logicController.Models;
 
+import logicController.RoundHandler;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class MasterMindCode {
     ColorController cc = new ColorController();
     ArrayList<Pin> arrMasterCode = new ArrayList<Pin>();
+
 
 
     public ArrayList<Pin> MasterMindCode() {
@@ -16,13 +19,13 @@ public class MasterMindCode {
     public void newMasterMindCode(int size, boolean choice) {
         if (!choice) {
             this.arrMasterCode = randomScramble(size);
-        } else
-            this.arrMasterCode = playerChoice(size);
+        } else {
+            //this.arrMasterCode = playerChoice(size);
+        }
     }
 
     // randomize the mastercode so that its random
     public ArrayList<Pin> randomScramble(int size) {
-
         for (int i = 0; i < size; i++) {
             Pin pin = new Pin();
             Random rnd = new Random();
@@ -33,8 +36,17 @@ public class MasterMindCode {
         return arrMasterCode;
     }
 
-    public ArrayList<Pin> playerChoice(int size) {
-        return null;
+    public ArrayList<Pin> playerChoice(int size, Round round) {
+
+        for (Pin p : round.getPlayerInputArray()){
+            Pin pin = new Pin();
+            cc.intToColor(p.getColorId(),pin);
+            arrMasterCode.add(pin);
+            cc.intToColor(0,p);
+        }
+
+        return arrMasterCode;
+
     }
 
     public void resetMastercode() {

@@ -13,11 +13,14 @@ public class RoundHandler extends MasterMindCode {
     int currentRound = 0;
     boolean state = false;
 
-    public void newGame(int size, int roundNrs) {
+    public void newGame(int size, int roundNrs, boolean choice) {
 
         rounds.clear();
         resetMastercode();
-        newMasterMindCode(size, false);
+        if (!choice) {
+            randomScramble(size);
+        }
+
         for (int i = 0; i < roundNrs; i++) {
             rounds.add(new Round(size));
         }
@@ -29,7 +32,7 @@ public class RoundHandler extends MasterMindCode {
 
         if (currentRound == 9) {
             System.out.println("End Of game");
-            newGame(4, 10);
+            //newGame(4, 10);
             //System.out.println(currentRound);
             setCurrentRound(0);
             System.out.println("Started New Game");
